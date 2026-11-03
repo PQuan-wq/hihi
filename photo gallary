@@ -1,0 +1,13 @@
+<div class="gallery">
+  <a target="_blank" href="image1.jpg">
+    <img src="image1.jpg" alt="Ảnh 1" width="600" height="400">
+  </a>
+  <div class="desc">Mô tả cho ảnh 1</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="image2.jpg">
+    <img src="image2.jpg" alt="Ảnh 2" width="600" height="400">
+  </a>
+  <div class="desc">Mô tả cho ảnh 2</div>
+</div>
