@@ -1,0 +1,33 @@
+import numpy as np
+
+# 1. Khởi tạo dữ liệu danh mục đầu tư mẫu
+assets = ['Cổ phiếu Công nghệ (Tech)', 'Cổ phiếu Tài chính (Fin)', 'Trái phiếu Chính phủ (Bonds)', 'Vàng (Gold)']
+weights = np.array([0.40, 0.25, 0.20, 0.15]) # Tỷ trọng phân bổ (Tổng = 100%)
+
+# Lợi nhuận kỳ vọng hàng năm của từng tài sản (Giả định)
+expected_returns = np.array([0.15, 0.10, 0.05, 0.08]) 
+
+# Ma trận hiệp biến (Covariance Matrix) thể hiện rủi ro và mối tương quan giữa các tài sản
+cov_matrix = np.array([
+    [0.050, 0.015, -0.002, 0.005],  # Tech
+    [0.015, 0.035, -0.001, 0.002],  # Fin
+    [-0.002, -0.001, 0.005, 0.001], # Bonds
+    [0.005, 0.002, 0.001, 0.020]    # Gold
+])
+
+# 2. Tính toán các chỉ số của danh mục đầu tư
+portfolio_return = np.sum(expected_returns * weights)
+portfolio_variance = np.dot(weights.T, np.dot(cov_matrix, weights))
+portfolio_volatility = np.sqrt(portfolio_variance) # Rủi ro (Độ lệch chuẩn)
+
+# 3. Hiển thị kết quả ra màn hình công cụ điều khiển (Console)
+print("="*50)
+print(" CHI TIẾT DANH MỤC ĐẦU TƯ DEMO")
+print("="*50)
+for i in range(len(assets)):
+    print(f"- {assets[i]}: Tỷ trọng: {weights[i]*100:.1f}% | Lợi nhuận kỳ vọng: {expected_returns[i]*100:.1f}%")
+
+print("-"*50)
+print(f" LỢI NHUẬN KỲ VỌNG TOÀN DANH MỤC: {portfolio_return * 100:.2f}% / năm")
+print(f" MỨC ĐỘ RỦI RO (VOLATILITY):      {portfolio_volatility * 100:.2f}%")
+print("="*50)
